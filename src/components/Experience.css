@@ -4,41 +4,35 @@
   position: relative;
 }
 
-.experience-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3.5rem;
-  margin-top: 2rem;
-}
-
-.timeline-container {
-  position: relative;
-}
-
 .timeline {
   position: relative;
+  max-width: 1050px;
+  margin: 3rem auto 0 auto;
   padding: 1rem 0;
 }
 
-/* Vertical line on the left side */
+/* Vertical line in the center */
 .timeline::before {
   content: '';
   position: absolute;
-  left: 17px;
+  left: 50%;
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 60%, transparent 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 50%, transparent 100%);
+  transform: translateX(-50%);
 }
 
 .timeline-item {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  align-items: center;
+  margin-bottom: 4rem;
   position: relative;
 }
 
 .timeline-dot {
+  grid-column: 2;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -50,14 +44,36 @@
   color: var(--color-primary);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
   z-index: 2;
-  flex-shrink: 0;
+  justify-self: center;
 }
 
-.timeline-content {
+/* Default (Odd Child) styling */
+.timeline-item:nth-child(odd) .timeline-content-side {
+  grid-column: 1;
+  padding-right: 2rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-image-side {
+  grid-column: 3;
+  padding-left: 2rem;
+}
+
+/* Alternating (Even Child) styling */
+.timeline-item:nth-child(even) .timeline-content-side {
+  grid-column: 3;
+  padding-left: 2rem;
+}
+
+.timeline-item:nth-child(even) .timeline-image-side {
+  grid-column: 1;
+  padding-right: 2rem;
+}
+
+/* Card details styling */
+.timeline-content-side {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  flex-grow: 1;
 }
 
 .timeline-date-badge {
@@ -118,22 +134,18 @@
   margin-top: 0.22rem;
 }
 
-/* Right Side Image Column */
-.experience-image-side {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+/* Image Container */
+.timeline-image-side {
+  width: 100%;
 }
 
-.experience-image-side .image-card {
+.timeline-image-card {
   padding: 0 !important;
   border-radius: 20px;
   overflow: hidden;
-  position: sticky;
-  top: 110px;
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
-  width: 100%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .experience-showcase-image {
@@ -142,10 +154,10 @@
   display: block;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: brightness(0.9) contrast(1.05);
+  filter: brightness(0.85) contrast(1.05);
 }
 
-.experience-image-side .image-card:hover .experience-showcase-image {
+.timeline-image-card:hover .experience-showcase-image {
   transform: scale(1.03);
   filter: brightness(1) contrast(1.05);
 }
@@ -159,20 +171,36 @@
 
 /* Responsiveness */
 @media (max-width: 950px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .timeline::before {
+    left: 20px;
+    transform: none;
   }
 
-  .experience-image-side {
-    order: -1; /* Place image on top of experience timeline on tablet/mobile */
+  .timeline-item {
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    margin-bottom: 3.5rem;
   }
 
-  .experience-image-side .image-card {
-    position: relative;
-    top: 0;
-    max-width: 600px;
-    margin: 0 auto;
+  .timeline-dot {
+    grid-column: 1 !important;
+    justify-self: start;
+    width: 30px;
+    height: 30px;
+  }
+
+  .timeline-content-side {
+    grid-column: 2 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .timeline-image-side {
+    grid-column: 2 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: 1.5rem;
+    max-width: 500px;
   }
 }
 
