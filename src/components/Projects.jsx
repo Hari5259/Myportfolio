@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GlassCard from './GlassCard';
-import { ExternalLink, Star, GitFork, BookOpen, Layers } from 'lucide-react';
+import { ExternalLink, Star, GitFork, BookOpen, Layers, ChevronRight } from 'lucide-react';
 import './Projects.css';
 
 const GithubIcon = ({ size = 20 }) => (
@@ -102,8 +102,10 @@ const Projects = () => {
         {featuredProjects.map((project, idx) => (
           <GlassCard key={idx} className="project-card">
             <div className="project-card-header">
-              <span className="project-date">{project.period}</span>
-              <h4 className="project-title">{project.title}</h4>
+              <div className="project-title-row">
+                <h4 className="project-title">{project.title}</h4>
+                <span className="project-date">{project.period}</span>
+              </div>
               <span className="project-type">{project.type}</span>
             </div>
             
@@ -111,7 +113,10 @@ const Projects = () => {
             
             <ul className="project-bullets">
               {project.bullets.map((bullet, bIdx) => (
-                <li key={bIdx}>{bullet}</li>
+                <li key={bIdx} className="project-bullet-item">
+                  <ChevronRight size={14} className="bullet-chevron" />
+                  <span>{bullet}</span>
+                </li>
               ))}
             </ul>
 
