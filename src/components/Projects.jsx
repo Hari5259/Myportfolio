@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GlassCard from './GlassCard';
-import { ExternalLink, Star, GitFork, BookOpen, Layers, ChevronRight } from 'lucide-react';
+import { Layers, ChevronRight } from 'lucide-react';
 import './Projects.css';
 
 const GithubIcon = ({ size = 20 }) => (
@@ -11,10 +11,6 @@ const GithubIcon = ({ size = 20 }) => (
 );
 
 const Projects = () => {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const featuredProjects = [
     {
       title: 'MediScan',
@@ -70,25 +66,6 @@ const Projects = () => {
     }
   ];
 
-  useEffect(() => {
-    fetch('https://api.github.com/users/Hari5259/repos?sort=updated&per_page=6')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch repositories.');
-        return res.json();
-      })
-      .then(data => {
-        // Filter out repos that might be the main portfolio if we only want others
-        const filtered = data.filter(repo => repo.name.toLowerCase() !== 'myportfolio');
-        setRepos(filtered);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
   return (
     <section id="projects" className="projects-section container">
       <h2 className="section-title">Projects</h2>
@@ -133,49 +110,6 @@ const Projects = () => {
             </div>
           </GlassCard>
         ))}
-      </div>
-
-      <div className="github-section">
-        <div className="featured-header">
-          <GithubIcon size={20} className="header-icon" />
-          <h3>Active GitHub Repositories</h3>
-        </div>
-
-        {loading ? (
-          <div className="loader">Loading latest repositories...</div>
-        ) : error ? (
-          <div className="repo-error">Could not load repositories from GitHub. <a href="https://github.com/Hari5259" target="_blank" rel="noopener noreferrer">Visit GitHub profile</a></div>
-        ) : (
-          <div className="repo-grid">
-            {repos.map(repo => (
-              <GlassCard key={repo.id} className="repo-card" glowOnHover={true}>
-                <div className="repo-content">
-                  <h4 className="repo-name">{repo.name}</h4>
-                  <p className="repo-description">{repo.description || 'No description provided.'}</p>
-                  
-                  <div className="repo-stats-row">
-                    {repo.language && (
-                      <span className="repo-lang-tag">
-                        <span className="lang-indicator"></span>
-                        {repo.language}
-                      </span>
-                    )}
-                    <span className="repo-stat">
-                      <Star size={14} /> {repo.stargazers_count}
-                    </span>
-                    <span className="repo-stat">
-                      <GitFork size={14} /> {repo.forks_count}
-                    </span>
-                  </div>
-
-                  <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-link-btn">
-                    Repository <ExternalLink size={14} />
-                  </a>
-                </div>
-              </GlassCard>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );

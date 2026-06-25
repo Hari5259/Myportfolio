@@ -259,8 +259,43 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
+}
+
+.skills-grid .skill-card:nth-child(1),
+.skills-grid .skill-card:nth-child(2),
+.skills-grid .skill-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+.skills-grid .skill-card:nth-child(4),
+.skills-grid .skill-card:nth-child(5) {
+  grid-column: span 3;
+}
+
+@media (max-width: 950px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .skills-grid .skill-card:nth-child(1),
+  .skills-grid .skill-card:nth-child(2),
+  .skills-grid .skill-card:nth-child(3),
+  .skills-grid .skill-card:nth-child(4) {
+    grid-column: span 2;
+  }
+  .skills-grid .skill-card:nth-child(5) {
+    grid-column: span 4;
+  }
+}
+
+@media (max-width: 620px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skills-grid .skill-card {
+    grid-column: span 1 !important;
+  }
 }
 
 .skill-card {
@@ -382,104 +417,5 @@
 
   .edu-degree {
     font-size: 1rem;
-  }
-}
-
-/* Personal Branding Logo Card */
-.brand-logo-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem !important;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.04) 0%, rgba(138, 43, 226, 0.04) 100%) !important;
-  border-color: rgba(0, 240, 255, 0.18) !important;
-  height: 100%;
-}
-
-.brand-logo-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  width: 100%;
-  margin: auto 0;
-}
-
-.brand-logo-glow {
-  position: relative;
-  width: 74px;
-  height: 74px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.25rem;
-}
-
-.brand-logo-ring {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 2.5px solid var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2.2rem;
-  color: var(--text-white);
-  box-shadow: 
-    0 0 20px rgba(0, 240, 255, 0.35),
-    inset 0 0 15px rgba(0, 240, 255, 0.2);
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-  animation: pulseLogo 4s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.brand-letter {
-  background: linear-gradient(135deg, var(--text-white) 40%, var(--color-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.brand-dot {
-  color: var(--color-accent);
-  text-shadow: 0 0 8px var(--color-accent);
-}
-
-.brand-logo-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-white);
-  letter-spacing: -0.01em;
-}
-
-.brand-logo-text {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-@keyframes pulseLogo {
-  0% {
-    transform: scale(1) rotate(0deg);
-    border-color: var(--color-primary);
-    box-shadow: 
-      0 0 20px rgba(0, 240, 255, 0.35),
-      inset 0 0 15px rgba(0, 240, 255, 0.2);
-  }
-  50% {
-    border-color: var(--color-accent);
-    box-shadow: 
-      0 0 22px rgba(255, 0, 127, 0.35),
-      inset 0 0 15px rgba(255, 0, 127, 0.2);
-  }
-  100% {
-    transform: scale(1.04) rotate(5deg);
-    border-color: var(--color-secondary);
-    box-shadow: 
-      0 0 25px rgba(138, 43, 226, 0.4),
-      inset 0 0 20px rgba(138, 43, 226, 0.25);
   }
 }

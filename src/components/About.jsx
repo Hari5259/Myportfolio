@@ -105,6 +105,26 @@ const About = () => {
           </div>
         </GlassCard>
 
+        {/* Education Section */}
+        <GlassCard className="education-card full-width-card">
+          <h3 className="card-title flex-align">
+            <BookOpen size={22} className="title-icon" /> Education
+          </h3>
+          <div className="education-grid-layout">
+            {education.map((edu, index) => (
+              <div key={index} className="edu-item">
+                <div className="edu-item-line"></div>
+                <div className="edu-header">
+                  <span className="edu-period">{edu.period}</span>
+                  <h4 className="edu-degree">{edu.degree}</h4>
+                </div>
+                <p className="edu-inst">{edu.institution}</p>
+                <p className="edu-grade">{edu.grade} {edu.location && `| ${edu.location}`}</p>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
         {/* Skills Section */}
         <div className="skills-section-wrapper">
           <h3 className="section-subtitle flex-align">
@@ -125,42 +145,8 @@ const About = () => {
                 </div>
               </GlassCard>
             ))}
-
-            {/* 6th Slot: Personal Branding Logo Card */}
-            <GlassCard className="skill-card brand-logo-card" glowOnHover={true}>
-              <div className="brand-logo-content">
-                <div className="brand-logo-glow">
-                  <div className="brand-logo-ring">
-                    <span className="brand-letter">H</span>
-                    <span className="brand-dot">.</span>
-                  </div>
-                </div>
-                <h4 className="brand-logo-title">Hariharasudhan S</h4>
-                <p className="brand-logo-text">MERN & AI Developer</p>
-              </div>
-            </GlassCard>
           </div>
         </div>
-
-        {/* Education Section */}
-        <GlassCard className="education-card full-width-card">
-          <h3 className="card-title flex-align">
-            <BookOpen size={22} className="title-icon" /> Education
-          </h3>
-          <div className="education-grid-layout">
-            {education.map((edu, index) => (
-              <div key={index} className="edu-item">
-                <div className="edu-item-line"></div>
-                <div className="edu-header">
-                  <span className="edu-period">{edu.period}</span>
-                  <h4 className="edu-degree">{edu.degree}</h4>
-                </div>
-                <p className="edu-inst">{edu.institution}</p>
-                <p className="edu-grade">{edu.grade} {edu.location && `| ${edu.location}`}</p>
-              </div>
-            ))}
-          </div>
-        </GlassCard>
       </div>
     </section>
   );
