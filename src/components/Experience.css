@@ -1,0 +1,179 @@
+.experience-section {
+  padding: 6rem 2rem;
+  z-index: 1;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary), transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-dot {
+  grid-column: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  z-index: 2;
+  justify-self: center;
+}
+
+.timeline-date-side {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
+}
+
+.timeline-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  color: var(--color-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.timeline-content-side {
+  padding-left: 1.5rem;
+}
+
+/* Alternating styling */
+.timeline-item:nth-child(even) .timeline-date-side {
+  grid-column: 3;
+  justify-content: flex-start;
+  padding-left: 1.5rem;
+  padding-right: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content-side {
+  grid-column: 1;
+  grid-row: 1;
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+/* Card details styling */
+.experience-card {
+  padding: 1.75rem;
+}
+
+.experience-role {
+  font-size: 1.3rem;
+  color: var(--text-white);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.experience-company {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.experience-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.experience-bullet-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.experience-bullet-item span {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.bullet-check-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* Responsiveness for timeline */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-dot {
+    grid-column: 1;
+    justify-self: start;
+    width: 30px;
+    height: 30px;
+  }
+
+  .timeline-date-side {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-start;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content-side {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .timeline-item:nth-child(even) .timeline-date-side {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content-side {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
