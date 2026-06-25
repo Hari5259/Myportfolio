@@ -52,10 +52,11 @@ const About = () => {
     <section id="about" className="about-section container">
       <h2 className="section-title">About & Skills</h2>
       
-      <div className="about-grid">
-        <div className="bio-container">
-          <GlassCard className="bio-card">
-            <h3 className="card-title">Who I Am</h3>
+      <div className="about-stack">
+        {/* Who I Am Section */}
+        <GlassCard className="bio-card full-width-card">
+          <h3 className="card-title">Who I Am</h3>
+          <div className="bio-content">
             <p className="bio-text">
               I am a passionate Computer Science and Engineering student at Dr. N.G.P. Institute of Technology. 
               My expertise lies in full-stack web development (MERN) and building offline intelligent LLM applications.
@@ -66,43 +67,51 @@ const About = () => {
               <span className="interest-tag">Artificial Intelligence</span>
               <span className="interest-tag">Software Engineering</span>
             </div>
-          </GlassCard>
+          </div>
+        </GlassCard>
 
-          <GlassCard className="education-card">
-            <h3 className="card-title flex-align">
-              <BookOpen size={22} className="title-icon" /> Education
-            </h3>
-            <div className="education-timeline">
-              {education.map((edu, index) => (
-                <div key={index} className="edu-item">
-                  <div className="edu-header">
-                    <span className="edu-period">{edu.period}</span>
-                    <h4 className="edu-degree">{edu.degree}</h4>
-                  </div>
-                  <p className="edu-inst">{edu.institution}</p>
-                  <p className="edu-grade">{edu.grade} {edu.location && `| ${edu.location}`}</p>
+        {/* Skills Section */}
+        <div className="skills-section-wrapper">
+          <h3 className="section-subtitle flex-align">
+            <Award size={22} className="title-icon" /> Technical Expertise
+          </h3>
+          <div className="skills-grid">
+            {skillCategories.map((category, index) => (
+              <GlassCard key={index} className="skill-card">
+                <h4 className="skill-category-title">
+                  {category.icon} {category.title}
+                </h4>
+                <div className="skill-tags">
+                  {category.skills.map((skill, sIndex) => (
+                    <span key={sIndex} className="skill-tag">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </GlassCard>
+              </GlassCard>
+            ))}
+          </div>
         </div>
 
-        <div className="skills-container">
-          {skillCategories.map((category, index) => (
-            <GlassCard key={index} className="skill-card">
-              <h4 className="skill-category-title">
-                {category.icon} {category.title}
-              </h4>
-              <div className="skill-tags">
-                {category.skills.map((skill, sIndex) => (
-                  <span key={sIndex} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
+        {/* Education Section */}
+        <GlassCard className="education-card full-width-card">
+          <h3 className="card-title flex-align">
+            <BookOpen size={22} className="title-icon" /> Education
+          </h3>
+          <div className="education-grid-layout">
+            {education.map((edu, index) => (
+              <div key={index} className="edu-item">
+                <div className="edu-item-line"></div>
+                <div className="edu-header">
+                  <span className="edu-period">{edu.period}</span>
+                  <h4 className="edu-degree">{edu.degree}</h4>
+                </div>
+                <p className="edu-inst">{edu.institution}</p>
+                <p className="edu-grade">{edu.grade} {edu.location && `| ${edu.location}`}</p>
               </div>
-            </GlassCard>
-          ))}
-        </div>
+            ))}
+          </div>
+        </GlassCard>
       </div>
     </section>
   );
