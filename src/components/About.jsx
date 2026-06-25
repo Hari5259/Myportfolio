@@ -41,7 +41,7 @@ const About = () => {
     },
     {
       degree: 'HSC (High School)',
-      institution: 'Vagini Vidyalaya Matric Hr Sec School',
+      institution: 'Nagini Vidyalaya Matric Hr Sec School',
       period: '2022 – 2023',
       grade: 'Grade - 87%',
       location: 'Coimbatore'
@@ -51,7 +51,7 @@ const About = () => {
   return (
     <section id="about" className="about-section container">
       <h2 className="section-title">About & Skills</h2>
-      
+
       <div className="about-stack">
         {/* Who I Am Section */}
         <GlassCard className="bio-card full-width-card">
@@ -59,7 +59,7 @@ const About = () => {
           <div className="bio-content-grid">
             <div className="bio-text-side">
               <p className="bio-text">
-                I am a passionate Computer Science and Engineering student at Dr. N.G.P. Institute of Technology. 
+                I am a passionate Computer Science and Engineering student at Dr. N.G.P. Institute of Technology.
                 My expertise lies in full-stack web development (MERN) and building offline intelligent LLM applications.
                 I enjoy solving complex problems, building scalable web structures, and crafting premium, responsive interfaces.
               </p>
@@ -71,7 +71,7 @@ const About = () => {
                 <span className="interest-tag">Gen-AI & RAG</span>
               </div>
             </div>
-            
+
             <div className="bio-stats-side">
               <div className="bio-stat-item">
                 <div className="stat-icon-wrapper"><BookOpen size={20} /></div>
@@ -125,6 +125,20 @@ const About = () => {
                 </div>
               </GlassCard>
             ))}
+
+            {/* 6th Slot: Personal Branding Logo Card */}
+            <GlassCard className="skill-card brand-logo-card" glowOnHover={true}>
+              <div className="brand-logo-content">
+                <div className="brand-logo-glow">
+                  <div className="brand-logo-ring">
+                    <span className="brand-letter">H</span>
+                    <span className="brand-dot">.</span>
+                  </div>
+                </div>
+                <h4 className="brand-logo-title">Hariharasudhan S</h4>
+                <p className="brand-logo-text">MERN & AI Developer</p>
+              </div>
+            </GlassCard>
           </div>
         </div>
 
