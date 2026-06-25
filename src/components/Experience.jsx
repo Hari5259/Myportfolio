@@ -1,6 +1,7 @@
 import React from 'react';
 import GlassCard from './GlassCard';
 import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
+import developerGraphic from '../assets/developer_graphic.png';
 import './Experience.css';
 
 const Experience = () => {
@@ -32,36 +33,49 @@ const Experience = () => {
     <section id="experience" className="experience-section container">
       <h2 className="section-title">Work Experience</h2>
       
-      <div className="timeline">
-        {experiences.map((exp, index) => (
-          <div key={index} className="timeline-item">
-            <div className="timeline-dot">
-              <Briefcase size={16} />
-            </div>
-            
-            <div className="timeline-date-side">
-              <span className="timeline-date-badge">
-                <Calendar size={14} /> {exp.period}
-              </span>
-            </div>
-
-            <div className="timeline-content-side">
-              <GlassCard className="experience-card" glowOnHover={true}>
-                <h3 className="experience-role">{exp.role}</h3>
-                <h4 className="experience-company">{exp.company}</h4>
+      <div className="experience-grid">
+        <div className="timeline-container">
+          <div className="timeline">
+            {experiences.map((exp, index) => (
+              <div key={index} className="timeline-item">
+                <div className="timeline-dot">
+                  <Briefcase size={16} />
+                </div>
                 
-                <ul className="experience-bullets">
-                  {exp.bullets.map((bullet, idx) => (
-                    <li key={idx} className="experience-bullet-item">
-                      <CheckCircle2 size={16} className="bullet-check-icon" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </GlassCard>
-            </div>
+                <div className="timeline-content">
+                  <span className="timeline-date-badge">
+                    <Calendar size={14} /> {exp.period}
+                  </span>
+                  
+                  <GlassCard className="experience-card" glowOnHover={true}>
+                    <h3 className="experience-role">{exp.role}</h3>
+                    <h4 className="experience-company">{exp.company}</h4>
+                    
+                    <ul className="experience-bullets">
+                      {exp.bullets.map((bullet, idx) => (
+                        <li key={idx} className="experience-bullet-item">
+                          <CheckCircle2 size={16} className="bullet-check-icon" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </GlassCard>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div className="experience-image-side">
+          <GlassCard className="image-card" glowOnHover={true}>
+            <img 
+              src={developerGraphic} 
+              alt="MERN Stack Developer Workspace" 
+              className="experience-showcase-image" 
+            />
+            <div className="image-overlay-glow"></div>
+          </GlassCard>
+        </div>
       </div>
     </section>
   );
