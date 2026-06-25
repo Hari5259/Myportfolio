@@ -59,8 +59,6 @@
 .timeline-item:nth-child(odd) .timeline-image-side {
   grid-column: 3;
   padding-left: 2rem;
-  display: flex;
-  justify-content: flex-start;
 }
 
 /* Alternating (Even Child) styling */
@@ -72,8 +70,6 @@
 .timeline-item:nth-child(even) .timeline-image-side {
   grid-column: 1;
   padding-right: 2rem;
-  display: flex;
-  justify-content: flex-end;
 }
 
 /* Card details styling */
@@ -157,8 +153,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   height: 100%;
-  aspect-ratio: 1 / 1;
-  width: auto;
+  width: 100%;
 }
 
 .experience-showcase-image {
