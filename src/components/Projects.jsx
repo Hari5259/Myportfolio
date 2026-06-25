@@ -49,7 +49,7 @@ const Projects = () => {
         'Built detailed visual analytics and report generation features.'
       ],
       tech: ['Next.js', 'TypeScript', 'Node.js', 'Gemini AI', 'Tailwind CSS'],
-      githubLink: 'https://github.com/Hari5259/EduQuity'
+      githubLink: 'https://github.com/Hari5259/education-equity-system'
     },
     {
       title: 'AgentForge',
@@ -62,7 +62,7 @@ const Projects = () => {
         'Integrated guardrails for safe, non-hallucinatory code and task execution.'
       ],
       tech: ['Python', 'Ollama', 'RAG', 'LLMs', 'GitHub API'],
-      githubLink: 'https://github.com/Hari5259/AgentForge'
+      githubLink: 'https://github.com/Hari5259/agentic-forge-LLM'
     }
   ];
 
