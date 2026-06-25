@@ -68,7 +68,7 @@ const Experience = () => {
                 <img 
                   src={exp.image} 
                   alt={`${exp.role} Illustration`} 
-                  className="experience-showcase-image" 
+                  className={`experience-showcase-image image-${exp.role.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} 
                 />
                 <div className="image-overlay-glow"></div>
               </GlassCard>

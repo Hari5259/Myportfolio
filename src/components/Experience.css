@@ -164,6 +164,14 @@
   filter: brightness(0.85) contrast(1.05);
 }
 
+.image-frontend-developer {
+  object-position: center 65%; /* Frame the developer and drawing screen vertically */
+}
+
+.image-mern-stack-developer {
+  object-position: center 30%; /* Frame the database nodes and logic blocks vertically */
+}
+
 .timeline-image-card:hover .experience-showcase-image {
   transform: scale(1.03);
   filter: brightness(1) contrast(1.05);
