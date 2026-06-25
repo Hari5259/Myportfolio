@@ -1,6 +1,6 @@
 import React from 'react';
 import GlassCard from './GlassCard';
-import { Award, BookOpen, Brain, Code, Cpu, Database, Terminal } from 'lucide-react';
+import { Award, BookOpen, Brain, Code, Cpu, Database, Terminal, Briefcase } from 'lucide-react';
 import './About.css';
 
 const About = () => {
