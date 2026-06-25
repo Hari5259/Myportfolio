@@ -56,16 +56,51 @@ const About = () => {
         {/* Who I Am Section */}
         <GlassCard className="bio-card full-width-card">
           <h3 className="card-title">Who I Am</h3>
-          <div className="bio-content">
-            <p className="bio-text">
-              I am a passionate Computer Science and Engineering student at Dr. N.G.P. Institute of Technology. 
-              My expertise lies in full-stack web development (MERN) and building offline intelligent LLM applications.
-              I enjoy solving complex problems, building scalable web structures, and crafting premium, responsive interfaces.
-            </p>
-            <div className="interests-tags">
-              <span className="interest-tag">Full Stack Development</span>
-              <span className="interest-tag">Artificial Intelligence</span>
-              <span className="interest-tag">Software Engineering</span>
+          <div className="bio-content-grid">
+            <div className="bio-text-side">
+              <p className="bio-text">
+                I am a passionate Computer Science and Engineering student at Dr. N.G.P. Institute of Technology. 
+                My expertise lies in full-stack web development (MERN) and building offline intelligent LLM applications.
+                I enjoy solving complex problems, building scalable web structures, and crafting premium, responsive interfaces.
+              </p>
+              <div className="interests-tags">
+                <span className="interest-tag">Full Stack Development</span>
+                <span className="interest-tag">Artificial Intelligence</span>
+                <span className="interest-tag">Software Engineering</span>
+                <span className="interest-tag">MERN Stack</span>
+                <span className="interest-tag">Gen-AI & RAG</span>
+              </div>
+            </div>
+            
+            <div className="bio-stats-side">
+              <div className="bio-stat-item">
+                <div className="stat-icon-wrapper"><BookOpen size={20} /></div>
+                <div className="stat-info">
+                  <span className="stat-value">7.7 CGPA</span>
+                  <span className="stat-label">Current Grade</span>
+                </div>
+              </div>
+              <div className="bio-stat-item">
+                <div className="stat-icon-wrapper"><Briefcase size={20} /></div>
+                <div className="stat-info">
+                  <span className="stat-value">2 Roles</span>
+                  <span className="stat-label">Work Experience</span>
+                </div>
+              </div>
+              <div className="bio-stat-item">
+                <div className="stat-icon-wrapper"><Award size={20} /></div>
+                <div className="stat-info">
+                  <span className="stat-value">4+ Builds</span>
+                  <span className="stat-label">Featured Projects</span>
+                </div>
+              </div>
+              <div className="bio-stat-item">
+                <div className="stat-icon-wrapper"><Cpu size={20} /></div>
+                <div className="stat-info">
+                  <span className="stat-value">Offline AI</span>
+                  <span className="stat-label">Local LLM & RAG</span>
+                </div>
+              </div>
             </div>
           </div>
         </GlassCard>
